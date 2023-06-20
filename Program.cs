@@ -1,4 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
+// This is derived from hacker rank skill problem solving practise test please dont cheat nor copy
+// the excersice is owned by hacker ranck 
+// i am only working on solution to learn new techniques
+
 Console.WriteLine("The Cities are connected by Raods ");
 
 String fileInput = "//users//syedqadri/Documents/Dev/TreeStructureRoads/InputData001.txt";
