@@ -2,6 +2,8 @@
 // This is derived from hacker rank skill problem solving practise test please dont cheat nor copy
 // the excersice is owned by hacker ranck 
 // i am only working on solution to learn new techniques
+// The solution is in progress provided solely by Syed Rafiuddin Qadri 
+// Please dont cheat for any test submission 
 
 Console.WriteLine("The Cities are connected by Raods ");
 
