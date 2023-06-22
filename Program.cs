@@ -28,8 +28,8 @@ foreach(Line line in lines)
 
      string[] inputLine =  line.LineContent.Split(" ".ToCharArray());
      int fromData =  Convert.ToInt32(inputLine[0]);
-     Console.WriteLine($"From Data {fromData}");
-      int toData = Convert.ToInt32(inputLine[1]);
+     int toData =  Convert.ToInt32(inputLine[1]);
+     Console.WriteLine($"From Data {fromData} to {toData}");
       if(!cities.Any(p=>p.CityValue == fromData) && !cities.Any(p=>p.CityValue == toData ) )
       {
           // means the City Node never connected nor created 
@@ -63,21 +63,34 @@ foreach(Line line in lines)
         // check conneted cities exist
         if(selectedCity.ConnectedCities != null)
         {
-           if(cities.Any(p=>p.CityValue != toData) && !selectedCity.ConnectedCities.Any(p=>p.CityValue == toData))
-           {
-              var lastConnection = selectedCity.ConnectedCities[selectedCity.ConnectedCities.Count-1].CityValue;
-              var conCity = new City();
-              conCity.CityValue = toData;
-              selectedCity.ConnectedCities.Add(conCity);
-              Console.WriteLine($"City Connected {fromData} ===== {lastConnection} ===  {toData}");
-              Console.WriteLine($"City conneted to {selectedCity.ConnectedCities.Count} cities");
-               
-           }
-           else 
-           {  
-              Console.WriteLine($"The connected city {fromData} to {toData} already exist ");
-           }
-           selectedCity.roadsConnectedTo = selectedCity.roadsConnectedTo + 1;
+          if(!selectedCity.ConnectedCities.Any(p=>p.CityValue == toData))
+          {
+            var lastConnection = selectedCity.ConnectedCities[selectedCity.ConnectedCities.Count-1].CityValue;
+          
+
+            if(cities.Any(p=>p.CityValue == toData))
+              {
+                var toCity = cities.First(p=>p.CityValue == toData);
+                selectedCity.ConnectedCities.Add(toCity);
+                Console.WriteLine($"City Connected {lastConnection} =====  {toData} === {fromData}");
+                selectedCity.roadsConnectedTo = selectedCity.roadsConnectedTo + 1;
+                
+              }
+              else 
+              {
+                var toCity = new City();
+                toCity.CityValue = toData;
+                cities.Add(toCity);
+                selectedCity.ConnectedCities.Add(toCity);
+                Console.WriteLine($"City Connected {lastConnection} =====  {toData} === {fromData}");
+                selectedCity.roadsConnectedTo = selectedCity.roadsConnectedTo + 1;
+
+
+              }
+              Console.WriteLine($"Total Number of connected cities is {selectedCity.ConnectedCities.Count}");
+          }
+          
+        //   selectedCity.roadsConnectedTo = selectedCity.roadsConnectedTo + 1;
         }
         else 
         {
@@ -85,6 +98,7 @@ foreach(Line line in lines)
               selectedCity.ConnectedCities = new List<City>();
                var conCity = new City();
               conCity.CityValue = toData;
+              cities.Add(conCity);
               selectedCity.ConnectedCities.Add(conCity);
       
         }
@@ -96,15 +110,30 @@ foreach(Line line in lines)
         // check conneted cities exist
         if(selectedCityOne.ConnectedCities != null)
         {
-           if( cities.Any(p=>p.CityValue != fromData) && !selectedCityOne.ConnectedCities.Any(p=>p.CityValue == fromData))
+           if(!selectedCityOne.ConnectedCities.Any(p=>p.CityValue == fromData))
            {
-               var lastConnection = selectedCityOne.ConnectedCities[selectedCityOne.ConnectedCities.Count-1].CityValue;
-             
-              var conCity = new City();
-              conCity.CityValue = fromData;
+              var lastConnection = selectedCityOne.ConnectedCities[selectedCityOne.ConnectedCities.Count-1].CityValue;
+              // check if city already exist
+              if(cities.Any(p=>p.CityValue == fromData))
+              {
+                // city already exist but it never connected before to this node
+                var fromCity = cities.First(p=>p.CityValue == fromData);
+                selectedCityOne.ConnectedCities.Add(fromCity);
+                Console.WriteLine($"City Connected {lastConnection} =====  {toData} === {fromData}");
+                selectedCityOne.roadsConnectedTo = selectedCityOne.roadsConnectedTo + 1;
+
+              }
+              else 
+              {
+                // city never exist
+                var conCity = new City();
+                conCity.CityValue = fromData;
+                cities.Add(conCity);
+              
               selectedCityOne.ConnectedCities.Add(conCity);
               Console.WriteLine($"City Connected {lastConnection} =====  {toData} === {fromData}");
               selectedCityOne.roadsConnectedTo = selectedCityOne.roadsConnectedTo + 1;
+            }
            }
            else 
            {  
@@ -117,6 +146,7 @@ foreach(Line line in lines)
                selectedCityOne.ConnectedCities = new List<City>();
                var conCity = new City();
                conCity.CityValue = toData;
+               cities.Add(conCity);
                selectedCityOne.ConnectedCities.Add(conCity);
       
         }
