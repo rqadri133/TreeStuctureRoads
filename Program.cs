@@ -1,9 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-// This is derived from hacker rank skill problem solving practise test please dont cheat nor copy
-// the excersice is owned by hacker ranck 
-// i am only working on solution to learn new techniques
-// The solution is in progress provided solely by Syed Rafiuddin Qadri 
-// Please dont cheat for any test submission 
+using TreeStructureRoads.Lines;
+
 
 Console.WriteLine("The Cities are connected by Raods ");
 
@@ -15,8 +12,7 @@ lines.RemoveAt(1);
 Console.WriteLine($"Load All Cities");
 List<City> loadedCities = CityResolver.ConnectAllCities(lines);
 
-
-public class CityResolver 
+class CityResolver 
 {
 
 
@@ -24,8 +20,8 @@ public class CityResolver
 
 public static List<City> ConnectAllCities(List<Line> lines)
 {
-    List<City> cities = new List<City>();
-   List<City> connectedCities = new List<City>();
+     List<City> cities = new List<City>();
+     List<City> connectedCities = new List<City>();
 
 
 foreach(Line line in lines)
@@ -56,31 +52,52 @@ foreach(Line line in lines)
            city.ConnectedCities = connectedCities;
                      
       }
-      else if(cities.Any(p=>p.CityValue == fromData) && !cities.Any(p=>p.ConnectedCities.Any(q=>q.CityValue == toData)))
+      else if(cities.Any(p=>p.CityValue == fromData) )
       {
-        // i found city and i also making sure that its not connected to 
-        // so i will add into connected city 
-          var selectedCity = cities.First(j=>j.CityValue == fromData); 
-          if(selectedCity.ConnectedCities != null)
-          {
-              var newCity = new City();
-              newCity.CityValue = toData;
-              selectedCity.ConnectedCities.Add(newCity);
+         var selectedCity = cities.First(p=>p.CityValue == fromData);
+        // check conneted cities exist
+        if(selectedCity.ConnectedCities != null)
+        {
+           if(!selectedCity.ConnectedCities.Any(p=>p.CityValue == toData))
+           {
+              var conCity = new City();
+              conCity.CityValue = toData;
+              selectedCity.ConnectedCities.Add(conCity);
 
-          }   
+           }
+           else 
+           {  
+              Console.WriteLine($"The connected city {fromData} to {toData} already exist ");
+           }
 
+        }
       }
 
-    }
+      else if(cities.Any(p=>p.CityValue == toData) )
+      {
+         var selectedCityOne = cities.First(p=>p.CityValue == toData);
+        // check conneted cities exist
+        if(selectedCityOne.ConnectedCities != null)
+        {
+           if(!selectedCityOne.ConnectedCities.Any(p=>p.CityValue == fromData))
+           {
+              var conCity = new City();
+              conCity.CityValue = fromData;
+              selectedCityOne.ConnectedCities.Add(conCity);
+
+           }
+           else 
+           {  
+              Console.WriteLine($"CantThe connected city {toData} to {fromData} already exist ");
+           }
+
+        }
+       }
+      }
+    
     return cities;
 
-}
-}
-
-
-
-
-
-
+  }
+ }
 
 

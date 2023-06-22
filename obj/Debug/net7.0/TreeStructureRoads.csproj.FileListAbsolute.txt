@@ -1,0 +1,15 @@
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.csproj.AssemblyReference.cache
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.GeneratedMSBuildEditorConfig.editorconfig
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.AssemblyInfoInputs.cache
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.AssemblyInfo.cs
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.csproj.CoreCompileInputs.cache
+/Users/syedqadri/Documents/dev/TreeStructureRoads/bin/Debug/net7.0/TreeStructureRoads
+/Users/syedqadri/Documents/dev/TreeStructureRoads/bin/Debug/net7.0/TreeStructureRoads.deps.json
+/Users/syedqadri/Documents/dev/TreeStructureRoads/bin/Debug/net7.0/TreeStructureRoads.runtimeconfig.json
+/Users/syedqadri/Documents/dev/TreeStructureRoads/bin/Debug/net7.0/TreeStructureRoads.dll
+/Users/syedqadri/Documents/dev/TreeStructureRoads/bin/Debug/net7.0/TreeStructureRoads.pdb
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.dll
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/refint/TreeStructureRoads.dll
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.pdb
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/TreeStructureRoads.genruntimeconfig.cache
+/Users/syedqadri/Documents/dev/TreeStructureRoads/obj/Debug/net7.0/ref/TreeStructureRoads.dll
